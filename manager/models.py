@@ -1,9 +1,7 @@
 from django.db import models
-
-# Create your models here.
-# User
 from django.contrib.auth.models import User
 
+# Create your models here.
 class Product(models.Model):
     user = models.ForeignKey(User)
     productName = models.CharField(max_length = 50)
