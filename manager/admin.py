@@ -1,7 +1,12 @@
 from django.contrib import admin
-
-# Register your models here.
 from manager.models import Product, Sale
 
-admin.site.register(Product)
-admin.site.register(Sale)
+# Register your models here.
+class ProductAdmin(admin.ModelAdmin):
+    list_display = ('id', 'productName')
+
+class SaleAdmin(admin.ModelAdmin):
+    list_display = ('id', 'product', 'created_at', 'updated_at')
+
+admin.site.register(Product, ProductAdmin)
+admin.site.register(Sale, SaleAdmin)
