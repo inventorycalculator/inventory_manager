@@ -1,11 +1,40 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<!---Login Form-->
-		<form id="login" method="post" action="{% url 'login' %}">
-			{% csrf_token %}
-			{{ form.as_table }}
-			<input type="submit" value="전송">
-		</form>
-	</body>
-</html>
+{% extends "base.html" %}
+{% block title %}Log In{% endblock %}
+{% block content %}
+<!---Signin Form-->
+<form id="signin" class="form-horizontal" method="post" action="{% url 'login' %}">
+	{% csrf_token %}
+
+	<!--Username input-->
+	<div class="row control-group">
+		<div class="form-group col-xs-12 floating-label-form-group controls">
+			{{ form.username.label_tag }}
+			{{ form.username }}
+		</div>
+	</div>
+
+	<!--Password input-->
+	<div class="row control-group">
+		<div class="form-group col-xs-12 floating-label-form-group controls">
+			{{ form.password.label_tag}}
+			{{ form.password }}	
+			<span class="field-error">
+				{{ form.non_field_erros|striptags }}
+			</span>
+		</div>
+	</div>
+
+	<!--Sign in Button -->
+	<div class="row">
+		<div class="from-group col-xs-12">
+			<input type="hidden" name="next" value="{{ next }}">
+			<button id="signin" name="signin" class="btn btn-block btn-default" type="submit">Log In</button>
+			<hr>
+			<center>
+				Or <a href="{% url 'signup' %}"><u>sign up</u></a>
+				if you don't have any account.
+			</center>
+		</div>
+	</div>
+</form>
+{% endblock %}

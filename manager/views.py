@@ -5,6 +5,9 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.forms import UserCreationForm
 from manager.forms import SignupForm
 
+def home(request):
+    return render(request, "index.html", {})
+
 def signup(request):
     """singup to register users"""
 
@@ -28,3 +31,5 @@ def signup(request):
 
 def signup_complete(request):
     return render(request, "registration/signup_complete.html", {})
+
+
