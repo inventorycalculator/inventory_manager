@@ -27,8 +27,8 @@ urlpatterns = [
     url(r'^signup_complete/$', views.signup_complete, name='signup_complete'),
 
     #login/logout
-    url(r'^login/$', login, name='login_url'), 
+    url(r'^login/$', login, name='login'), 
     url(r'^logout/$', logout, {
         'next_page': '/login/', },
-    name='logout_url'),     
+    name='logout'),     
 ]
