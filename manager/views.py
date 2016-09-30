@@ -6,7 +6,7 @@ from django.contrib.auth.forms import UserCreationForm
 from manager.forms import SignupForm
 
 def home(request):
-    return render(request, "index.html", {})
+    return render(request, "intro.html")
 
 def signup(request):
     """singup to register users"""
