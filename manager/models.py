@@ -4,11 +4,12 @@ from django.contrib.auth.models import User
 # Create your models here.
 class Product(models.Model):
     user = models.ForeignKey(User)
-    productName = models.CharField(max_length = 50)
+    productName = models.CharField(max_length = 30)
     buyCost = models.IntegerField(default = 0)
     sellCost = models.IntegerField(default = 0)
     salvageCost = models.IntegerField(default = 0)
-    pub_date = models.DateTimeField('date published')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
         return self.productName
@@ -18,7 +19,8 @@ class Sale(models.Model):
     minSale = models.IntegerField(default = 0)
     probableSale = models.IntegerField(default = 0)
     maxSale = models.IntegerField(default = 0)
-    date = models.DateTimeField('date created')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.date
+        return self.created_at
