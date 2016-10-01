@@ -67,7 +67,7 @@ TEMPLATES = [
     },
 ]
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/product/list'
 WSGI_APPLICATION = 'inventorymanager.wsgi.application'
 
 

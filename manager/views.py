@@ -4,10 +4,13 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from django.contrib.auth.forms import UserCreationForm
 from manager.forms import SignupForm
+from .models import Product
 
+#home
 def home(request):
     return render(request, "intro.html")
 
+#signup
 def signup(request):
     """singup to register users"""
 
@@ -32,4 +35,10 @@ def signup(request):
 def signup_complete(request):
     return render(request, "registration/signup_complete.html", {})
 
+#proudct
+def product_list(request):
+    productList = Product.objects.all()
+    return render(request, 'product/list.html', {
+        'product_list': productList,
+     })
 

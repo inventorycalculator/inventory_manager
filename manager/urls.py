@@ -19,4 +19,7 @@ urlpatterns = [
     url(r'^logout/$', logout, {
         'next_page': '/login/', },
     name='logout'),
+
+    #product list/new/edit
+    url(r'^product/list', views.product_list),  #재고 LIST
 ]

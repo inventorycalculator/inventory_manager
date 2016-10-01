@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}INVENTORY LIST{% endblock %}
+{% block content %}
+
+<h1>INVENTORY LIST</h1>
+<table class="table table-hover table-bordered">
+	<tbody>	
+		{% for product in product_list %}
+		<tr>
+			<td>{{ product.productName }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+
+{% endblock %}
