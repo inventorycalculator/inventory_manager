@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from django.shortcuts import redirect
 
 from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
@@ -37,15 +38,16 @@ def signup_complete(request):
 
 #product
 def product_list(request):
-    productList = Product.objects.all()
-    return render(request, 'product/list.html', {
-        'product_list': productList,
-     })
+    if request.user.is_authenticated():
+        productList = Product.objects.all()
+        return render(request, 'product/list.html', {
+            'product_list': productList,
+         })
+    else: 
+        return redirect('/login/')
 
 def product_detail(request, pk):
     product = Product.objects.get(pk=pk)
     return render(request, 'product/detail.html', {
         'product': product,
     })
-
-
