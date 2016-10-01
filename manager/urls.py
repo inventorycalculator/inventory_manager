@@ -21,5 +21,6 @@ urlpatterns = [
     name='logout'),
 
     #product list/new/edit
-    url(r'^product/list', views.product_list),  #재고 LIST
+    url(r'^product/list/$', views.product_list, name='product_list'),  #Product List
+    url(r'^product/(?P<pk>\d+)/$', views.product_detail, name='product_detail'),  #Product Detail
 ]

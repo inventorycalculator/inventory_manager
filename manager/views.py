@@ -42,3 +42,10 @@ def product_list(request):
         'product_list': productList,
      })
 
+def product_detail(request, pk):
+    product = Product.objects.get(pk=pk)
+    return render(request, 'product/detail.html', {
+        'product': product,
+    })
+
+

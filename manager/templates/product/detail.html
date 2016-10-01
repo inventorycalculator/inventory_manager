@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}PRODUCT DETAIL{% endblock %}
+{% block content %}
+
+<h1>상품명: {{ product.productName }}</h1>
+<h3>상품 구입 가격: {{ product.buyCost }} 원</h3>
+<h3>상품 판매 가격: {{ product.sellCost }} 원</h3>
+<h3>상품 처리 가격: {{ product.salvageCost }} 원</h3>
+
+{% endblock %}
