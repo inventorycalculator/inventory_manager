@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% block title %}Inventory Calculator{% endblock %}
 {% block content %}
+
 <h1>재고관리 프로그램</h1>
+
+{% if user.is_authenticated %}
+	<a href="{% url 'product_list' %}">나의 상품 관리</a>
+{% endif %}
 {% endblock %}
