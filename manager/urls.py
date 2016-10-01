@@ -20,7 +20,8 @@ urlpatterns = [
         'next_page': '/login/', },
     name='logout'),
 
-    #product list/new/edit
+    #product list/detail/new
     url(r'^product/list/$', views.product_list, name='product_list'),  #Product List
     url(r'^product/(?P<pk>\d+)/$', views.product_detail, name='product_detail'),  #Product Detail
+    url(r'^product/new/$', views.product_new, name='product_new'),
 ]

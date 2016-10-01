@@ -3,7 +3,7 @@ from manager.models import Product, Sale
 
 # Register your models here.
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('id', 'productName')
+    list_display = ('id', 'productName', 'created_at')
 
 class SaleAdmin(admin.ModelAdmin):
     list_display = ('id', 'product', 'created_at', 'updated_at')
