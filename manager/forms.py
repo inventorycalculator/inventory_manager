@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
-from .models import Product
+from .models import Product, Sale
 
 
 class SignupForm(UserCreationForm):
@@ -59,3 +59,8 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = ('productName','buyCost', 'sellCost', 'salvageCost', )
+
+class SaleForm(forms.ModelForm):
+    class Meta:
+        model = Sale
+        fields = ('minSale', 'probableSale', 'maxSale',) 

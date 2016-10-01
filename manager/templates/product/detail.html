@@ -3,7 +3,7 @@
 {% block content %}
 
 <h1>상품명: {{ product.productName }}</h1>
-<table class="table table-hover table-bordered">
+<table class="table table-hover table-bordered" style="margin-top: 30px;">
 	<tbody>
 		<tr>
 			<td>상품 구입 가격: {{ product.buyCost }} 원</td>
@@ -16,4 +16,26 @@
 		</tr>
 	</tbody>
 </table>
+<h1>판매 정보</h1>
+<table class="table table-hover table-bordered" style="margin-top: 30px;">
+	<a href="/product/{{product.id}}/sale/new">새 판매 정보 등록</a>  
+	<tbody>
+		<tr>
+			<td>최소 판매량</td>
+			<td>예상 판매량</td>
+			<td>최고 판매량</td>
+			<td>판매 날짜</td>
+		</tr>
+		
+		{% for sale in product.sale_set.all %}
+		<tr>
+			<td> {{ sale.minSale }}</td>
+			<td> {{ sale.probableSale }}</td>
+			<td> {{ sale.maxSale }}</td>
+			<td> {{ sale.created_at }}</td>
+		</tr>
+		{% endfor %}
+	</tbody>
+</table>
+<a href="/product/list">뒤로 돌아가기</a>
 {% endblock %}

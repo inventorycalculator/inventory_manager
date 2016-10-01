@@ -6,7 +6,7 @@ from django.core.urlresolvers import reverse
 from django.contrib.auth.forms import UserCreationForm
 from manager.forms import SignupForm
 from .models import Product
-from manager.forms import ProductForm
+from manager.forms import ProductForm, SaleForm
 
 #home
 def home(request):
@@ -66,4 +66,15 @@ def product_new(request):
         form = ProductForm()
     return render(request, 'product/new.html', {'form': form})
 
-
+#sale
+def sale_new(request, pk):
+    if request.method == "POST":
+        form = SaleForm(request.POST)
+        if form.is_valid():
+            sale = form.save(commit = False)
+            sale.product = Product.objects.get(pk=pk) 
+            sale.save()
+            return redirect(product_detail, pk)
+    else:
+        form = SaleForm()
+    return render(request, 'sale/new.html', {'form': form})

@@ -24,4 +24,7 @@ urlpatterns = [
     url(r'^product/list/$', views.product_list, name='product_list'),  #Product List
     url(r'^product/(?P<pk>\d+)/$', views.product_detail, name='product_detail'),  #Product Detail
     url(r'^product/new/$', views.product_new, name='product_new'),
+
+    #sale
+    url(r'^product/(?P<pk>\d+)/sale/new/$', views.sale_new, name="sale_new")
 ]
