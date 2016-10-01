@@ -35,7 +35,7 @@ def signup(request):
 def signup_complete(request):
     return render(request, "registration/signup_complete.html", {})
 
-#proudct
+#product
 def product_list(request):
     productList = Product.objects.all()
     return render(request, 'product/list.html', {

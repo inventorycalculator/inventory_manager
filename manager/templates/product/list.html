@@ -7,7 +7,7 @@
 	<tbody>	
 		{% for product in product_list %}
 		<tr>
-			<td>{{ product.productName }}</td>
+			<td><a href="/product/{{product.id}}">{{ product.productName }}<a></td>
 		</tr>
 		{% endfor %}
 	</tbody>
