@@ -39,7 +39,8 @@ def signup_complete(request):
 #product
 def product_list(request):
     if request.user.is_authenticated():
-        productList = Product.objects.all()
+        productList = Product.objects.filter(user = request.user)
+
         return render(request, 'product/list.html', {
             'product_list': productList,
          })
